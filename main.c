@@ -14,17 +14,19 @@ int sget(char* vetor, int tam) {
 
 #define TAM 50
 int main(void) {
+  
   char palavra[TAM];
-  int i, j, k;
+  int j, k;
+  int i = 0;
 
   printf("Input: ");
   sget(palavra, TAM);
 
   while(i < strlen(palavra)){
-    j = 1 + i;
+    j = i + 1;
     while(palavra[j] != '\0'){
       if(palavra[j] == palavra[i]){
-        j= k;
+        k = j;
         while(palavra[k] != '\0'){
           palavra[k] = palavra[k + 1];
           k++;
@@ -35,6 +37,6 @@ int main(void) {
     i++;
   }
 
-  printf("Output: %s", palavra);
+  printf("Output: %s ", palavra);
   return 0;
 }
