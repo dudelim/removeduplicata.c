@@ -1,8 +1,19 @@
 #include <stdio.h>
 #include <string.h>
 
+int sget(char* vetor, int tam) {
+    fflush(stdin); 
+    if (fgets(vetor, tam, stdin)) { 
+        int i;
+        for( i = 0; vetor[i] != '\n' && vetor[i]; ++i)
+          ;
+        vetor[i] = '\0';
+    }
+}
+
+
 int main(void) {
-   char palavra[50];
+  char palavra[50];
   int i, j, k;
 
   printf("Input: ");
