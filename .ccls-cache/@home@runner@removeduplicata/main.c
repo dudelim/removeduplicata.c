@@ -11,5 +11,14 @@ int main(void) {
   for (i = 0; i < strlen(palavra); i++) {
     for (j = (1 + i); palavra[j] != '\0'; j++) {
       if (palavra[i] == palavra[j]) {
-    
+            for (k = j; palavra[k] != '\0'; k++) {
+          palavra[k + 1] = palavra[k];
+        }
+      }
+    }
+  }
+
+  printf("Output: %s", palavra);
+
+  return 0;
 }
