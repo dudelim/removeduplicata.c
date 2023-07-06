@@ -12,24 +12,29 @@ int sget(char* vetor, int tam) {
 }
 
 
+#define TAM 50
 int main(void) {
-  char palavra[50];
+  char palavra[TAM];
   int i, j, k;
 
   printf("Input: ");
-  fgets(palavra, 50, stdin);
+  sget(palavra, TAM);
 
-  for (i = 0; i < strlen(palavra); i++) {
-    for (j = (1 + i); palavra[j] != '\0'; j++) {
-      if (palavra[i] == palavra[j]) {
-            for (k = j; palavra[k] != '\0'; k++) {
-          palavra[k + 1] = palavra[k];
+  while(i < strlen(palavra)){
+    j = 1 + i;
+    while(palavra[j] != '\0'){
+      if(palavra[j] == palavra[i]){
+        j= k;
+        while(palavra[k] != '\0'){
+          palavra[k] = palavra[k + 1];
+          k++;
         }
       }
+      j++;
     }
+    i++;
   }
 
   printf("Output: %s", palavra);
-
   return 0;
 }
